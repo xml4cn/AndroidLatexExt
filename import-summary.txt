@@ -1,0 +1,81 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* .gitignore
+* AUTHORS.txt
+* COPYING
+* LICENSE
+* README.md
+* ajlatexmath-web2.png
+* device-2015-07-23-141601.png
+* device-2015-07-23-141629.png
+* device-2015-07-23-141710.png
+* device-2015-07-23-141738.png
+* device-2015-07-23-141754.png
+* device-2015-07-23-141814.png
+* device-2015-07-23-141823.png
+* device-2015-07-23-141833.png
+* proguard-project.txt
+
+Replaced Jars with Dependencies:
+--------------------------------
+The importer recognized the following .jar files as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the .jar file in your project was of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the jar replacement in the import wizard and try again:
+
+android-support-v4.jar => com.android.support:support-v4:19.+
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => jlatexmath/src/main/AndroidManifest.xml
+* assets/ => jlatexmath/src/main/assets/
+* res/ => jlatexmath/src/main/res/
+* src/ => jlatexmath/src/main/java/
+* src/maximsblog/blogspot/com/jlatexmath/cyrillic/COPYING => jlatexmath/src/main/resources/maximsblog/blogspot/com/jlatexmath/cyrillic/COPYING
+* src/maximsblog/blogspot/com/jlatexmath/cyrillic/LICENSE => jlatexmath/src/main/resources/maximsblog/blogspot/com/jlatexmath/cyrillic/LICENSE
+* src/maximsblog/blogspot/com/jlatexmath/cyrillic/MANIFEST.MF => jlatexmath/src/main/resources/maximsblog/blogspot/com/jlatexmath/cyrillic/MANIFEST.MF
+* src/maximsblog/blogspot/com/jlatexmath/greek/COPYING => jlatexmath/src/main/resources/maximsblog/blogspot/com/jlatexmath/greek/COPYING
+* src/maximsblog/blogspot/com/jlatexmath/greek/LICENSE => jlatexmath/src/main/resources/maximsblog/blogspot/com/jlatexmath/greek/LICENSE
+* src/maximsblog/blogspot/com/jlatexmath/greek/MANIFEST.MF => jlatexmath/src/main/resources/maximsblog/blogspot/com/jlatexmath/greek/MANIFEST.MF
+
+Missing Android Support Repository:
+-----------------------------------
+Some useful libraries, such as the Android Support Library, are
+installed from a special Maven repository, which should be installed
+via the SDK manager.
+
+It looks like this library is missing from your SDK installation at:
+null
+
+To install it, open the SDK manager, and in the Extras category,
+select "Android Support Repository". You may also want to install the
+"Google Repository" if you want to use libraries like Google Play
+Services.
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)
