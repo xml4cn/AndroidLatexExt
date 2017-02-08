@@ -270,4 +270,11 @@ public interface TeXFont {
 	public boolean isExtensionChar(Char c);
 
 	public TeXFont copy();
+
+	/**************************** Begin *********************************************/
+	//add by yangzc
+	public Text getDefaultText(String str, int style);
+	public Text getText(String c, String textStyle, int style)
+			throws TextStyleMappingNotFoundException;
+	/**************************** End ***********************************************/
 }

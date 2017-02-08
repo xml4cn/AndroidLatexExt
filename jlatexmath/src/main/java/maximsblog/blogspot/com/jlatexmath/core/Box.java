@@ -343,4 +343,11 @@ public abstract class Box {
 	protected void endDraw(Canvas g2) {
 		AjLatexMath.getPaint().setColor(prevColor);
 	}
+
+	/**************************** Begin *********************************************/
+	//add by yangzc
+	public LinkedList<Box> getChildren() {
+		return children;
+	}
+	/**************************** End ***********************************************/
 }

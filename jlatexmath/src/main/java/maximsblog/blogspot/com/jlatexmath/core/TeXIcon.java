@@ -238,4 +238,11 @@ public class TeXIcon {
 		box.draw(g2, (x + insets.left) / size,
 				(y + insets.top) / size + box.getHeight());
 	}
+
+	/**************************** Begin *********************************************/
+	//add by yangzc
+	public float getSize() {
+		return size;
+	}
+	/**************************** End ***********************************************/
 }

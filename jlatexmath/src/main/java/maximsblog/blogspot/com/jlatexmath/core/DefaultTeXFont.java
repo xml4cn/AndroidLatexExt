@@ -638,4 +638,24 @@ public class DefaultTeXFont implements TeXFont {
 		else
 			return generalSettings.get("scriptscriptfactor").floatValue();
 	}
+
+	/**************************** Begin *********************************************/
+	//add by yangzc
+	@Override
+	public Text getDefaultText(String str, int style) {
+		Char ch = getDefaultChar('0', style);
+		return new Text(str, ch.getFont(), ch.getFontCode(), ch.getMetrics());
+	}
+
+	@Override
+	public Text getText(String c, String textStyle, int style) throws TextStyleMappingNotFoundException {
+		Object mapping = textStyleMappings.get(textStyle);
+		if (mapping == null) // text style mapping not found
+			throw new TextStyleMappingNotFoundException(textStyle);
+		else {
+			Char ch = getChar('0', (CharFont[]) mapping, style);
+			return new Text(c, ch.getFont(), ch.getFontCode(), ch.getMetrics());
+		}
+	}
+	/**************************** End ***********************************************/
 }
