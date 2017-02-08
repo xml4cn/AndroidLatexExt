@@ -833,6 +833,16 @@ public class TeXFormula {
 			return this;
 		}
 
+
+		/**************************** Begin *********************************************/
+		//add by yangzc
+		private Object mTag;
+		public TeXIconBuilder setTag(Object tag) {
+			this.mTag = tag;
+			return this;
+		}
+		/**************************** End ***********************************************/
+
 		/**
 		 * Create a TeXIcon from the information gathered by the (chained)
 		 * setXXX() methods. (see Builder pattern)
@@ -856,6 +866,7 @@ public class TeXFormula {
 			} else {
 				te = new TeXEnvironment(style, font);
 			}
+			te.setTag(mTag);
 
 			if (interLineUnit != null) {
 				te.setInterline(interLineUnit, interLineSpacing);

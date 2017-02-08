@@ -89,6 +89,18 @@ public class TeXEnvironment {
 		setInterline(TeXConstants.UNIT_EX, 1f);
 	}
 
+
+	/**************************** Begin *********************************************/
+	//add by yangzc
+	private Object mTag;
+	public void setTag(Object tag) {
+		this.mTag = tag;
+	}
+	public Object getTag() {
+		return mTag;
+	}
+	/**************************** End ***********************************************/
+
 	public void setInterline(int unit, float len) {
 		this.interline = len;
 		this.interlineUnit = unit;
@@ -115,8 +127,11 @@ public class TeXEnvironment {
 	}
 
 	protected TeXEnvironment copy() {
-		return new TeXEnvironment(style, scaleFactor, tf, background, color,
+		//modify by yangzc
+		TeXEnvironment te = new TeXEnvironment(style, scaleFactor, tf, background, color,
 				textStyle, smallCap);
+		te.setTag(mTag);
+		return te;
 	}
 
 	protected TeXEnvironment copy(TeXFont tf) {
@@ -125,6 +140,8 @@ public class TeXEnvironment {
 		te.textwidth = textwidth;
 		te.interline = interline;
 		te.interlineUnit = interlineUnit;
+		//modify by yangzc
+		te.mTag = mTag;
 		return te;
 	}
 

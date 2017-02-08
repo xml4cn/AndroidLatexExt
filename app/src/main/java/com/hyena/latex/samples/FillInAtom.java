@@ -42,6 +42,7 @@ public class FillInAtom extends Atom {
                 textStyle = ts;
             }
         }
+        Log.v("yangzc", (String) env.getTag());
         boolean smallCap = env.getSmallCap();
         Text ch = getString(env.getTeXFont(), env.getStyle(), smallCap);
         Box box = new FillInBox(mIndex, ch);

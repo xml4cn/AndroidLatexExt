@@ -39,7 +39,7 @@ public class LatexView extends View {
         mTexFormula = new TeXFormula();
         mBuilder = mTexFormula.new TeXIconBuilder()
                 .setStyle(TeXConstants.STYLE_DISPLAY)
-                .setSize(30);
+                .setSize(30).setTag("hello tag");
     }
 
     public void setFormula(String latex){
