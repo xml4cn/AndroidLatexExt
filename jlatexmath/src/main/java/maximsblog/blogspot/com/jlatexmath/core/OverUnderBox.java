@@ -30,6 +30,7 @@
 package maximsblog.blogspot.com.jlatexmath.core;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
 
 /**
  * A box representing another box with a delimiter box and a script box above or
@@ -80,10 +81,10 @@ public class OverUnderBox extends Box {
 						+ kern : 0);
 	}
 
-	public void draw(Canvas g2, float x, float y) {
+	public void draw(Canvas g2, float x, float y, Paint paint) {
 		g2.save();
-		drawDebug(g2, x, y);
-		base.draw(g2, x, y);
+		drawDebug(g2, x, y, paint);
+		base.draw(g2, x, y, paint);
 
 		float yVar = y - base.height - del.getWidth();
 		del.setDepth(del.getHeight() + del.getDepth());
@@ -92,11 +93,11 @@ public class OverUnderBox extends Box {
 			float transX = (float) (x + (del.height + del.depth) * 0.75), transY = yVar;
 			g2.translate(transX, transY);
 			g2.rotate((float) Math.toDegrees((Math.PI / 2)));
-			del.draw(g2, 0, 0);
+			del.draw(g2, 0, 0, paint);
 			g2.restore();
 			// draw superscript
 			if (script != null) {
-				script.draw(g2, x, yVar - kern - script.depth);
+				script.draw(g2, x, yVar - kern - script.depth, paint);
 			}
 		}
 
@@ -105,13 +106,13 @@ public class OverUnderBox extends Box {
 			float transX = (float) (x + (del.getHeight() + del.depth) * 0.75), transY = yVar;
 			g2.translate(transX, transY);
 			g2.rotate((float) Math.toDegrees((float) (Math.PI / 2)));
-			del.draw(g2, 0, 0);
+			del.draw(g2, 0, 0, paint);
 			g2.restore();
 			yVar += del.getWidth();
 
 			// draw subscript
 			if (script != null) {
-				script.draw(g2, x, yVar + kern + script.height);
+				script.draw(g2, x, yVar + kern + script.height, paint);
 			}
 		}
 	}

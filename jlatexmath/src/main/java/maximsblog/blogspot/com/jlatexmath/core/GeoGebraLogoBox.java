@@ -49,9 +49,8 @@ public class GeoGebraLogoBox extends Box {
 		this.shift = 0;
 	}
 
-	public void draw(Canvas g2, float x, float y) {
+	public void draw(Canvas g2, float x, float y, Paint st) {
 		g2.save();
-		Paint st = AjLatexMath.getPaint();
 		int c = st.getColor();
 		Style s = st.getStyle();
 		float w = st.getStrokeWidth();

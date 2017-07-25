@@ -3,6 +3,7 @@ package com.hyena.latex.samples;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -24,6 +25,7 @@ public class LatexView extends View {
     private TeXIcon mTexIcon;
     private TeXFormula.TeXIconBuilder mBuilder;
     private String mLatex;
+    private Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
     public LatexView(Context context) {
         super(context);
@@ -67,7 +69,7 @@ public class LatexView extends View {
 //            mRectF.set(0, 0, mTexIcon.getTrueIconWidth(), mTexIcon.getTrueIconHeight());
 //            mPaint.setStyle(Paint.Style.STROKE);
 //            canvas.drawRect(mRectF, mPaint);
-            mTexIcon.paintIcon(canvas, 0, 0);
+            mTexIcon.paintIcon(canvas, 0, 0, paint);
         }
     }
 
@@ -76,7 +78,7 @@ public class LatexView extends View {
             mBuilder.setWidth(TeXConstants.UNIT_PIXEL, getWidth(), TeXConstants.ALIGN_LEFT);
             mBuilder.setIsMaxWidth(true);
             mBuilder.setInterLineSpacing(TeXConstants.UNIT_PIXEL,
-                    AjLatexMath.getLeading(30));
+                    AjLatexMath.getLeading(paint, 30));
         }
         mTexIcon = mBuilder.build();
         mTexIcon.setInsets(new Insets(5, 5, 5, 5));

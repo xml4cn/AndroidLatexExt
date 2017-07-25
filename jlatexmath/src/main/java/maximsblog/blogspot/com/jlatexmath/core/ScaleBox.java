@@ -29,6 +29,7 @@
 package maximsblog.blogspot.com.jlatexmath.core;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
 
 /**
  * A box representing a scaled box.
@@ -56,13 +57,13 @@ public class ScaleBox extends Box {
 		this.factor = factor;
 	}
 
-	public void draw(Canvas g2, float x, float y) {
-		drawDebug(g2, x, y);
+	public void draw(Canvas g2, float x, float y, Paint paint) {
+		drawDebug(g2, x, y, paint);
 		if (xscl != 0 && yscl != 0) {
 			float dec = xscl < 0 ? width : 0;
 			g2.translate(x + dec, y);
 			g2.scale((float) xscl, (float) yscl);
-			box.draw(g2, 0, 0);
+			box.draw(g2, 0, 0, paint);
 			g2.scale((float) (1f / xscl), (float) (1f / yscl));
 			g2.translate(-x - dec, -y);
 		}

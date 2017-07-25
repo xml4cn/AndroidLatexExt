@@ -36,6 +36,7 @@ import java.util.ListIterator;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 
 /**
  * A box composed of a horizontal row of child boxes.
@@ -91,8 +92,8 @@ public class HorizontalBox extends Box {
 		return b;
 	}
 
-	public void draw(Canvas g2, float x, float y) {
-		startDraw(g2, x, y);
+	public void draw(Canvas g2, float x, float y, Paint st) {
+		startDraw(g2, x, y, st);
 		float xPos = x;
 		for (Box box : children) {
 			/*
@@ -101,10 +102,10 @@ public class HorizontalBox extends Box {
 			 * java.awt.Color.BLUE; }
 			 */
 
-			box.draw(g2, xPos, y + box.shift);
+			box.draw(g2, xPos, y + box.shift, st);
 			xPos += box.getWidth();
 		}
-		endDraw(g2);
+		endDraw(g2, st);
 	}
 
 	public final void add(Box b) {

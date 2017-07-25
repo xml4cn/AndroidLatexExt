@@ -30,6 +30,7 @@
 package maximsblog.blogspot.com.jlatexmath.core;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
 
 /**
  * A box representing glue.
@@ -44,7 +45,7 @@ public class GlueBox extends Box {
 		this.shrink = shrink;
 	}
 
-	public void draw(Canvas g2, float x, float y) {
+	public void draw(Canvas g2, float x, float y, Paint paint) {
 		// no visible effect
 	}
 

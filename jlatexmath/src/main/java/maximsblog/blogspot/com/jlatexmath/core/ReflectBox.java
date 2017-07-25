@@ -29,6 +29,7 @@
 package maximsblog.blogspot.com.jlatexmath.core;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
 
 /**
  * A box representing a rotated box.
@@ -45,11 +46,11 @@ public class ReflectBox extends Box {
 		shift = b.shift;
 	}
 
-	public void draw(Canvas g2, float x, float y) {
-		drawDebug(g2, x, y);
+	public void draw(Canvas g2, float x, float y, Paint paint) {
+		drawDebug(g2, x, y, paint);
 		g2.translate(x, y);
 		g2.scale(-1, 1);
-		box.draw(g2, -width, 0);
+		box.draw(g2, -width, 0, paint);
 		g2.scale(-1, 1);
 		g2.translate(-x, -y);
 	}

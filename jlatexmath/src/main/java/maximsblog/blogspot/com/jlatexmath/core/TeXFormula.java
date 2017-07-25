@@ -415,7 +415,7 @@ public class TeXFormula {
 	}
 
 	/**
-	 * @param a
+	 * @param formula
 	 *            formula
 	 * @return a partial TeXFormula containing the valid part of formula
 	 */
@@ -956,7 +956,7 @@ public class TeXFormula {
 	}
 
 	public void createImage(Bitmap.CompressFormat format, int style,
-			float size, String out, Integer bg, Integer fg, boolean transparency)
+			float size, String out, Integer bg, Integer fg, boolean transparency, Paint paint)
 			throws IOException {
 		TeXIcon icon = createTeXIcon(style, size);
 		icon.setInsets(new Insets(1, 1, 1, 1));
@@ -972,7 +972,7 @@ public class TeXFormula {
 		}
 
 		icon.setForeground(fg == null ? Color.BLACK : fg);
-		icon.paintIcon(g2, 0, 0);
+		icon.paintIcon(g2, 0, 0, paint);
 		File file = new File(out);
 		FileOutputStream imout = new FileOutputStream(file);
 		image.compress(format, 90, imout);
@@ -981,20 +981,20 @@ public class TeXFormula {
 	}
 
 	public void createPNG(int style, float size, String out, Integer bg,
-			Integer fg) throws IOException {
+			Integer fg, Paint paint) throws IOException {
 		createImage(Bitmap.CompressFormat.PNG, style, size, out, bg, fg,
-				bg == null);
+				bg == null, paint);
 	}
 
 	@SuppressLint("NewApi")
 	public void createWEBP(int style, float size, String out, Integer bg,
-			Integer fg) throws IOException {
-		createImage(Bitmap.CompressFormat.WEBP, style, size, out, bg, fg, bg == null);
+			Integer fg, Paint paint) throws IOException {
+		createImage(Bitmap.CompressFormat.WEBP, style, size, out, bg, fg, bg == null, paint);
 	}
 
 	public void createJPEG(int style, float size, String out, Integer bg,
-			Integer fg) throws IOException {
-		createImage(Bitmap.CompressFormat.JPEG, style, size, out, bg, fg, false);
+			Integer fg, Paint paint) throws IOException {
+		createImage(Bitmap.CompressFormat.JPEG, style, size, out, bg, fg, false, paint);
 	}
 
 	/**
@@ -1004,12 +1004,10 @@ public class TeXFormula {
 	 *            the style
 	 * @param size
 	 *            the size
-	 * @param transparency
-	 *            , if true the background is transparent
 	 * @return the generated image
 	 */
 	public static Bitmap createBufferedImage(String formula, int style,
-			float size, Integer fg, Integer bg) throws ParseException {
+			float size, Integer fg, Integer bg, Paint paint) throws ParseException {
 		TeXFormula f = new TeXFormula(formula);
 		TeXIcon icon = f.createTeXIcon(style, size);
 		icon.setInsets(new Insets(2, 2, 2, 2));
@@ -1025,7 +1023,7 @@ public class TeXFormula {
 		}
 
 		icon.setForeground(fg == null ? Color.BLACK : fg);
-		icon.paintIcon(g2, 0, 0);
+		icon.paintIcon(g2, 0, 0, paint);
 
 		return image;
 	}
@@ -1037,12 +1035,10 @@ public class TeXFormula {
 	 *            the style
 	 * @param size
 	 *            the size
-	 * @param transparency
-	 *            , if true the background is transparent
 	 * @return the generated image
 	 */
 	public Bitmap createBufferedImage(int style, float size, Integer fg,
-			Integer bg) throws ParseException {
+			Integer bg, Paint paint) throws ParseException {
 		TeXIcon icon = createTeXIcon(style, size);
 		icon.setInsets(new Insets(2, 2, 2, 2));
 		int w = icon.getIconWidth(), h = icon.getIconHeight();
@@ -1057,7 +1053,7 @@ public class TeXFormula {
 		}
 
 		icon.setForeground(fg == null ? Color.BLACK : fg);
-		icon.paintIcon(g2, 0, 0);
+		icon.paintIcon(g2, 0, 0, paint);
 
 		return image;
 	}

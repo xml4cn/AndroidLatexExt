@@ -98,9 +98,8 @@ public class JavaFontRenderingBox extends Box {
 		font = Typeface.createFromAsset(mng, name);
 	}
 
-	public void draw(Canvas g2, float x, float y) {
-		drawDebug(g2, x, y);
-		Paint st = AjLatexMath.getPaint();
+	public void draw(Canvas g2, float x, float y, Paint st) {
+		drawDebug(g2, x, y, st);
 		float w = st.getStrokeWidth();
 		Style s = st.getStyle();
 		Typeface f = st.getTypeface();

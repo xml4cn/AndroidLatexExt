@@ -67,8 +67,7 @@ public class HorizontalRule extends Box {
 	shift = s;
     }
 
-    public void draw(Canvas g2, float x, float y) {
-	Paint st = AjLatexMath.getPaint();
+    public void draw(Canvas g2, float x, float y, Paint st) {
 	Style s = st.getStyle();
 	float w = st.getStrokeWidth();
 	st.setStyle(Style.FILL);

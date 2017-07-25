@@ -31,13 +31,12 @@
 
 package maximsblog.blogspot.com.jlatexmath.core;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
+
+import java.util.LinkedList;
 
 /**
  * An abstract graphical representation of a formula, that can be painted. All
@@ -263,8 +262,11 @@ public abstract class Box {
 	 *            the x-coordinate
 	 * @param y
 	 *            the y-coordinate
+	 * @param paint
+	 *            the paint modify by yangzc
+	 *
 	 */
-	public abstract void draw(Canvas g2, float x, float y);
+	public abstract void draw(Canvas g2, float x, float y, Paint paint);
 
 	/**
 	 * Get the id of the font that will be used the last when this box will be
@@ -285,25 +287,24 @@ public abstract class Box {
 	 * @param y
 	 *            the y-coordinate
 	 */
-	protected void startDraw(Canvas g2, float x, float y) {
+	protected void startDraw(Canvas g2, float x, float y, Paint st) {
 		// old color
-		prevColor = AjLatexMath.getPaint().getColor();
+		prevColor = st.getColor();
 		if (background != null&& background != -1) { // draw background
-			AjLatexMath.getPaint().setColor(background);
-			g2.drawRect(x, y, x+width, y-height + depth, AjLatexMath.getPaint());
+			st.setColor(background);
+			g2.drawRect(x, y, x+width, y-height + depth, st);
 		}
 		if (foreground == null) {
-			AjLatexMath.getPaint().setColor(prevColor); // old foreground color
+			st.setColor(prevColor); // old foreground color
 		} else {
-			AjLatexMath.getPaint().setColor(foreground); // overriding foreground
+			st.setColor(foreground); // overriding foreground
 														// color
 		}
-		drawDebug(g2, x, y);
+		drawDebug(g2, x, y, st);
 	}
 
-	protected void drawDebug(Canvas g2, float x, float y, boolean showDepth) {
+	protected void drawDebug(Canvas g2, float x, float y, boolean showDepth, Paint st) {
 		if (DEBUG) {
-			Paint st = AjLatexMath.getPaint();
 			int c = st.getColor();
 			st.setColor(markForDEBUG);
 			st.setStyle(Style.FILL_AND_STROKE);
@@ -328,9 +329,9 @@ public abstract class Box {
 		}
 	}
 
-	protected void drawDebug(Canvas g2, float x, float y) {
+	protected void drawDebug(Canvas g2, float x, float y, Paint st) {
 		if (DEBUG) {
-			drawDebug(g2, x, y, true);
+			drawDebug(g2, x, y, true, st);
 		}
 	}
 
@@ -340,8 +341,8 @@ public abstract class Box {
 	 * @param g2
 	 *            the graphics (2D) context
 	 */
-	protected void endDraw(Canvas g2) {
-		AjLatexMath.getPaint().setColor(prevColor);
+	protected void endDraw(Canvas g2, Paint st) {
+		st.setColor(prevColor);
 	}
 
 	/**************************** Begin *********************************************/

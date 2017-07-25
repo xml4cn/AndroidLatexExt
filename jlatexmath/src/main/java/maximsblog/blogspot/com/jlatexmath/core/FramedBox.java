@@ -61,8 +61,7 @@ public class FramedBox extends Box {
 		this.bg = bg;
 	}
 
-	public void draw(Canvas g2, float x, float y) {
-		Paint st = AjLatexMath.getPaint();
+	public void draw(Canvas g2, float x, float y, Paint st) {
 		float w = st.getStrokeWidth();
 		Style s = st.getStyle();
 		int c = st.getColor();
@@ -86,7 +85,7 @@ public class FramedBox extends Box {
 		// drawDebug(g2, x, y);
 		st.setStrokeWidth(w);
 		st.setStyle(s);
-		box.draw(g2, x + space + thickness, y);
+		box.draw(g2, x + space + thickness, y, st);
 		// st.setStyle(s);
 		st.setColor(c);
 	}

@@ -32,6 +32,7 @@ package maximsblog.blogspot.com.jlatexmath.core;
 import java.util.ListIterator;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
 
 /**
  * A box composed of other boxes, put one above the other.
@@ -94,11 +95,11 @@ class VerticalBox extends Box {
         recalculateWidth(b);
     }
 
-    public void draw(Canvas g2, float x, float y) {
+    public void draw(Canvas g2, float x, float y, Paint paint) {
         float yPos = y - height;
         for (Box b : children) {
             yPos += b.getHeight();
-            b.draw(g2, x + b.getShift() - leftMostPos, yPos);
+            b.draw(g2, x + b.getShift() - leftMostPos, yPos, paint);
             yPos += b.getDepth();
         }
     }

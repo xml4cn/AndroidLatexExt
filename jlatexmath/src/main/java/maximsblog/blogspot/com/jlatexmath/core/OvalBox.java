@@ -44,9 +44,8 @@ public class OvalBox extends FramedBox {
 		super(fbox.box, fbox.thickness, fbox.space);
 	}
 
-	public void draw(Canvas g2, float x, float y) {
-		box.draw(g2, x + space + thickness, y);
-		Paint st = AjLatexMath.getPaint();
+	public void draw(Canvas g2, float x, float y, Paint st) {
+		box.draw(g2, x + space + thickness, y, st);
 		float w = st.getStrokeWidth();
 		st.setStrokeWidth(thickness);
 		Style s = st.getStyle();

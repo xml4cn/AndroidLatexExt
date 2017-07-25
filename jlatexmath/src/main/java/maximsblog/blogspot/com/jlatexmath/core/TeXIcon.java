@@ -33,6 +33,7 @@ package maximsblog.blogspot.com.jlatexmath.core;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 
 /**
  * An {@link javax.swing.Icon} implementation that will paint the TeXFormula
@@ -229,14 +230,14 @@ public class TeXIcon {
 	/**
 	 * Paint the {@link TeXFormula} that created this icon.
 	 */
-	public void paintIcon(Canvas g, int x, int y) {
+	public void paintIcon(Canvas g, int x, int y, Paint paint) {
 		Canvas g2 = (Canvas) g;
 
 		g2.scale(size, size); // the point size
 
 		// draw formula box
 		box.draw(g2, (x + insets.left) / size,
-				(y + insets.top) / size + box.getHeight());
+				(y + insets.top) / size + box.getHeight(), paint);
 	}
 
 	/**************************** Begin *********************************************/

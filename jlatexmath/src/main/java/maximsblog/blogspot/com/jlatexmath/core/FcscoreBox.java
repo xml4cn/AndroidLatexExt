@@ -53,8 +53,7 @@ public class FcscoreBox extends Box {
 		this.thickness = thickness;
 	}
 
-	public void draw(Canvas g2, float x, float y) {
-		Paint st = AjLatexMath.getPaint();
+	public void draw(Canvas g2, float x, float y, Paint st) {
 		/*
 		 * AffineTransform transf = g2.getTransform(); Stroke oldStroke =
 		 * g2.getStroke();

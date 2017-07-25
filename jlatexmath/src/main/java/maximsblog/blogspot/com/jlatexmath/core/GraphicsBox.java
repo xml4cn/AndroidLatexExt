@@ -63,7 +63,7 @@ public class GraphicsBox extends Box {
 		 */
 	}
 
-	public void draw(Canvas g2, float x, float y) {
+	public void draw(Canvas g2, float x, float y, Paint paint) {
 		g2.save();
 		// Object oldKey = null;
 		// if (interp != null) {

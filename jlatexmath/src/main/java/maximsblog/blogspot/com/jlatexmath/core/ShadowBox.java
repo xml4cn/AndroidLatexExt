@@ -46,10 +46,9 @@ public class ShadowBox extends FramedBox {
 		width += shadowRule;
 	}
 
-	public void draw(Canvas g2, float x, float y) {
+	public void draw(Canvas g2, float x, float y, Paint st) {
 		float th = thickness / 2;
-		box.draw(g2, x + space + thickness, y);
-		Paint st = AjLatexMath.getPaint();
+		box.draw(g2, x + space + thickness, y, st);
 		float w = st.getStrokeWidth();
 		int c = st.getColor();
 		Style s = st.getStyle();

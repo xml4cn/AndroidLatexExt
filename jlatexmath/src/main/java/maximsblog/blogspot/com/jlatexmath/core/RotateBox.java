@@ -29,6 +29,7 @@
 package maximsblog.blogspot.com.jlatexmath.core;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.Point;
 
 /**
@@ -184,14 +185,15 @@ public class RotateBox extends Box {
 		return p;
 	}
 
-	public void draw(Canvas g2, float x, float y) {
-		drawDebug(g2, x, y);
-		box.drawDebug(g2, x, y, true);
+	@Override
+	public void draw(Canvas g2, float x, float y, Paint paint) {
+		drawDebug(g2, x, y, paint);
+		box.drawDebug(g2, x, y, true, paint);
 		y -= shiftY;
 		x += shiftX - xmin;
 		g2.rotate((float) Math.toDegrees((float) -angle), x, y);
-		box.draw(g2, x, y);
-		box.drawDebug(g2, x, y, true);
+		box.draw(g2, x, y, paint);
+		box.drawDebug(g2, x, y, true, paint);
 		g2.rotate((float) Math.toDegrees(angle), x, y);
 	}
 

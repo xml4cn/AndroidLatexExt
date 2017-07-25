@@ -30,6 +30,7 @@
 package maximsblog.blogspot.com.jlatexmath.core;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
 
 /**
  * A box representing whitespace.
@@ -43,7 +44,7 @@ public class StrutBox extends Box {
 		shift = s;
 	}
 
-	public void draw(Canvas g2, float x, float y) {
+	public void draw(Canvas g2, float x, float y, Paint paint) {
 		// no visual effect
 	}
 

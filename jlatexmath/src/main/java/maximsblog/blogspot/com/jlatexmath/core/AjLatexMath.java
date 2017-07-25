@@ -9,14 +9,14 @@ import android.graphics.Paint.Style;
 public class AjLatexMath {
 
 	private static Context mContext;
-	private static Paint st;
+//	private static Paint st;
 
 	public static void init(Context context) {
 		mContext = context;
-		st = new Paint();
-		st.setStyle(Style.FILL_AND_STROKE);
-		st.setColor(Color.BLACK);
-		st.setStrokeWidth(1);
+//		st = new Paint();
+//		st.setStyle(Style.FILL_AND_STROKE);
+//		st.setColor(Color.BLACK);
+//		st.setStrokeWidth(1);
 		new TeXFormula();
 	}
 
@@ -29,11 +29,11 @@ public class AjLatexMath {
 		return mContext;
 	}
 
-	public static Paint getPaint() {
-		return st;
-	}
+//	public static Paint getPaint() {
+//		return st;
+//	}
 	
-	public static float getLeading(float textSize){
+	public static float getLeading(Paint st, float textSize){
 		st.setTextSize(textSize);
 		return st.getFontSpacing();
 	}

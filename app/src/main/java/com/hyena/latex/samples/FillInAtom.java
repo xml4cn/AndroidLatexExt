@@ -83,18 +83,17 @@ public class FillInAtom extends Atom {
         private float mX, mY;
 
         @Override
-        public void draw(Canvas g2, float x, float y) {
+        public void draw(Canvas g2, float x, float y, Paint st) {
             this.mX = x;
             this.mY = y;
 
-            drawDebug(g2, x, y);
+            drawDebug(g2, x, y, st);
             g2.save();
             g2.translate(x, y);
             Typeface font = FontInfo.getFont(cf.fontId);
             if (size != 1) {
                 g2.scale(size, size);
             }
-            Paint st = AjLatexMath.getPaint();
             st.setTextSize(TeXFormula.PIXELS_PER_POINT);
             st.setTypeface(font);
             st.setAntiAlias(true);
