@@ -77,8 +77,7 @@ public class LatexView extends View {
         if (mBuilder != null) {
             mBuilder.setWidth(TeXConstants.UNIT_PIXEL, getWidth(), TeXConstants.ALIGN_LEFT);
             mBuilder.setIsMaxWidth(true);
-            mBuilder.setInterLineSpacing(TeXConstants.UNIT_PIXEL,
-                    AjLatexMath.getLeading(paint, 30));
+            mBuilder.setInterLineSpacing(TeXConstants.UNIT_PIXEL, paint.getFontSpacing());
         }
         mTexIcon = mBuilder.build();
         mTexIcon.setInsets(new Insets(5, 5, 5, 5));

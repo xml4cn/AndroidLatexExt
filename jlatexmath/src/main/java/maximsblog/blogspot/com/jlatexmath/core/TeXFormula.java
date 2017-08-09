@@ -31,32 +31,25 @@
 
 package maximsblog.blogspot.com.jlatexmath.core;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.List;
-import java.util.LinkedList;
-import java.util.Set;
-import java.util.Stack;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.lang.Character.UnicodeBlock;
-
-import maximsblog.blogspot.com.jlatexmath.R;
 import android.annotation.SuppressLint;
-import android.content.res.AssetManager;
 import android.graphics.Bitmap;
-import android.graphics.Bitmap.CompressFormat;
 import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.util.TypedValue;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Represents a logical mathematical formula that will be displayed (by creating
@@ -1029,8 +1022,6 @@ public class TeXFormula {
 	}
 
 	/**
-	 * @param formula
-	 *            the formula
 	 * @param style
 	 *            the style
 	 * @param size

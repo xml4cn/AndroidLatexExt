@@ -2,9 +2,6 @@ package maximsblog.blogspot.com.jlatexmath.core;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Paint.Style;
 
 public class AjLatexMath {
 
@@ -33,8 +30,8 @@ public class AjLatexMath {
 //		return st;
 //	}
 	
-	public static float getLeading(Paint st, float textSize){
-		st.setTextSize(textSize);
-		return st.getFontSpacing();
-	}
+//	public static float getLeading(Paint st, float textSize){
+//		st.setTextSize(textSize);
+//		return st.getFontSpacing();
+//	}
 }
